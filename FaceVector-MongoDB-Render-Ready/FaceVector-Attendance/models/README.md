@@ -1,2 +1,0 @@
-# Data models
-Mongoose schemas are currently centralized in `server.js` to keep this starter deployable as a single API entry point. Collections: users (role-specific accounts), students, attendancesessions, attendances, securityalerts, auditlogs. Face templates are excluded from normal student queries and only accept validated 128-number vectors. Split schemas into dedicated model files as the API grows.
