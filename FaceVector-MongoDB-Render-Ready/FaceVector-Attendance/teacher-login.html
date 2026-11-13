@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://cdn.jsdelivr.net https://unpkg.com; style-src 'self' https://fonts.googleapis.com https://unpkg.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https://*.tile.openstreetmap.org; connect-src 'self' https: wss:; base-uri 'none'; form-action 'self'; object-src 'none'">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#102b35">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Teacher Login | FaceVector</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/portal.css">
+  <link rel="stylesheet" href="css/professional.css">
+  <script src="js/theme.js"></script>
+</head>
+<body>
+  <div id="nav"></div>
+  <main class="portal portal-auth">
+    <a class="portal-back" href="index.html">← Back to FaceVector</a>
+    <section class="auth-panel">
+      <div class="auth-mark" aria-hidden="true">FV</div>
+      <p class="auth-eyebrow">FACEVECTOR · SECURE PORTAL</p>
+      <h1>Teacher sign in</h1>
+      <p class="auth-description">Your classes, attendance sessions and student records.</p>
+      <form id="loginForm">
+        <label for="email">Institutional email</label>
+        <input id="email" name="email" type="email" autocomplete="username" maxlength="254" placeholder="you@institution.edu" required>
+        <label for="password">Password</label>
+        <div class="password-wrap">
+          <input id="password" name="password" type="password" autocomplete="current-password" maxlength="200" placeholder="Enter your password" required>
+          <button class="password-toggle" type="button" id="togglePassword" aria-label="Show password" aria-pressed="false" aria-controls="password" title="Show password">
+            <svg class="password-icon password-icon-show" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg class="password-icon password-icon-hide" viewBox="0 0 24 24" aria-hidden="true" focusable="false" hidden><path d="m3 3 18 18M10.6 10.6a2 2 0 0 0 2.8 2.8"/><path d="M9.9 5.2A10.8 10.8 0 0 1 12 5c6.4 0 10 7 10 7a15 15 0 0 1-3.1 3.8M6.2 6.2C3.5 8 2 12 2 12s3.6 7 10 7a10 10 0 0 0 4-.8"/></svg>
+          </button>
+        </div>
+        <button class="auth-submit" type="submit" data-login="teacher">Sign in as Teacher</button>
+        <p class="auth-alt">New teacher? <button type="button" class="link-btn" id="showRegister">Register</button></p>
+      </form>
+      <form id="registerForm" hidden>
+        <label for="regName">Full name</label>
+        <input id="regName" type="text" autocomplete="name" maxlength="80" placeholder="Your name" required>
+        <label for="regEmail">Email</label>
+        <input id="regEmail" type="email" autocomplete="username" maxlength="254" placeholder="you@institution.edu" required>
+        <label for="regClasses">Class(es) you teach</label>
+        <input id="regClasses" type="text" maxlength="200" placeholder="e.g. 10-A, 10-B" required>
+        <label for="regPassword">Create password (8+ characters)</label>
+        <div class="password-wrap">
+          <input id="regPassword" type="password" autocomplete="new-password" minlength="8" maxlength="200" placeholder="Create a password" required>
+          <button class="password-toggle" type="button" id="toggleRegPassword" aria-label="Show password" aria-pressed="false" aria-controls="regPassword" title="Show password">
+            <svg class="password-icon password-icon-show" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg class="password-icon password-icon-hide" viewBox="0 0 24 24" aria-hidden="true" focusable="false" hidden><path d="m3 3 18 18M10.6 10.6a2 2 0 0 0 2.8 2.8"/><path d="M9.9 5.2A10.8 10.8 0 0 1 12 5c6.4 0 10 7 10 7a15 15 0 0 1-3.1 3.8M6.2 6.2C3.5 8 2 12 2 12s3.6 7 10 7a10 10 0 0 0 4-.8"/></svg>
+          </button>
+        </div>
+        <label for="regPasswordConfirm">Confirm password</label>
+        <input id="regPasswordConfirm" type="password" autocomplete="new-password" minlength="8" maxlength="200" placeholder="Enter the same password again" required>
+        <div id="codeBox" hidden><label for="regCode">School access code</label>
+        <input id="regCode" type="text" autocomplete="off" maxlength="100" placeholder="Given by your college"></div>
+        <button class="auth-submit" type="submit" id="registerSubmit">Register and sign in</button>
+        <p class="auth-alt">Already registered? <button type="button" class="link-btn" id="showLogin">Sign in</button></p>
+      </form>
+      <p id="notice" class="auth-notice" role="status" aria-live="polite"></p>
+      <p class="auth-footnote">Sign in once on this device and you stay signed in, ready to take attendance.</p>
+    </section>
+    <nav class="auth-switch" aria-label="Other portals">
+      <span>Other portals:</span>
+      <a href="teacher-login.html">Teacher</a>
+      <a href="admin-login.html">Admin</a>
+      <a href="guard-login.html">Guard</a>
+    </nav>
+  </main>
+  <script src="js/main.js"></script>
+  <script src="js/config.js"></script><script src="public/app.js"></script>
+</body>
+</html>

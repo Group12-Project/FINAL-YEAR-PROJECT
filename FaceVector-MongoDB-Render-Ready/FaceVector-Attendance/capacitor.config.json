@@ -1,0 +1,6 @@
+{
+  "appId": "com.facevector.attendance",
+  "appName": "FaceVector",
+  "webDir": "www",
+  "server": { "androidScheme": "https" }
+}

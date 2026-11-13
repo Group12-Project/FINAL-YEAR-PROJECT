@@ -1,0 +1,17 @@
+node_modules/
+.env
+.env.*.local
+.DS_Store
+Thumbs.db
+npm-debug.log*
+coverage/
+playwright-report/
+test-results/
+*.log
+www/
+android/build/
+android/app/build/
+android/.gradle/
+*.apk
+*.keystore
+local.properties
